@@ -5,122 +5,158 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard</title>
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background: #0b1426;
+      color: white;
+      padding: 25px;
+    }
+    .header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    .header h1{
+      font-size: 35px;
+      font-weight: bold;
+    }
+    .toggle-btn{
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #1c2b4a;
+      color: white;
+      font-size: 14px;
+    }
+    .toggle-btn:hover{
+      background: #273b67;
+    }
+    .main{
+      display: flex;
+      gap: 25px;
+    }
+    .sidebar{
+      width: 280px;
+      height: 550px;
+      border-radius: 12px;
+      background: #111d35;
+      padding: 25px;
+      border: 1px solid #223558;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar h2{
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+    .nav-item{
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid transparent;
+    }
+    .nav-item:hover{
+      background: #172a4d;
+      border: 1px solid #27406a;
+    }
+    .content{
+      flex: 1;
+      display: flex;
+      gap: 20px;
+    }
+    .box{
+      flex: 1;
+      height: 160px;
+      border-radius: 12px;
+      background: #111d35;
+      border: 1px solid #223558;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .box:hover{
+      transform: translateY(-5px);
+      background: #172a4d;
+    }
+    body.light{
+      background: #f0f3ff;
+      color: black;
+    }
+    body.light .sidebar,
+    body.light .box{
+      background: white;
+      border: 1px solid #cfd7ee;
+      color: black;
+    }
+    body.light .toggle-btn{
+      background: #dbe2ff;
+      color: black;
+    }
+    body.light .toggle-btn:hover{
+      background: #cbd5ff;
+    }
+    body.light .nav-item:hover{
+      background: #edf1ff;
+      border: 1px solid #cfd7ee;
+    }
+    @media(max-width: 900px){
+      .main{
+        flex-direction: column;
+      }
+      .sidebar{
+        width: 100%;
+        height: auto;
+      }
+      .content{
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <div class="bg"></div>
-
-  <main class="shell">
-    <!-- Top Bar -->
-    <header class="topbar">
-      <div class="title-wrap">
-        <h1 class="title">Admin Dashboard</h1>
-        <p class="subtitle">Control panel • Overview & management</p>
-      </div>
-
-      <button class="mode-btn" id="modeBtn" aria-label="Toggle theme">
-        <span class="mode-icon">☀️</span>
-        <span class="mode-text">Light Mode</span>
-      </button>
-    </header>
-
-    <!-- Layout -->
-    <section class="layout">
-      <!-- Sidebar -->
-      <aside class="card sidebar">
-        <div class="card-head">
-          <h2>Navigation</h2>
-          <span class="pill">Admin</span>
-        </div>
-
-        <nav class="nav">
-          <a class="nav-item active" href="#">
-            <span class="dot"></span>
-            Dashboard
-          </a>
-          <a class="nav-item" href="#">
-            <span class="dot"></span>
-            Analytics
-          </a>
-          <a class="nav-item" href="#">
-            <span class="dot"></span>
-            Users
-          </a>
-          <a class="nav-item" href="#">
-            <span class="dot"></span>
-            Settings
-          </a>
-        </nav>
-
-        <div class="sidebar-footer">
-          <div class="userbox">
-            <div class="avatar">A</div>
-            <div>
-              <div class="user-name">Admin</div>
-              <div class="user-role">Full Access</div>
-            </div>
-          </div>
-        </div>
-      </aside>
-
-      <!-- Content -->
-      <section class="content">
-        <div class="cards-row">
-          <a class="card tile" href="#">
-            <div class="tile-icon">📊</div>
-            <div class="tile-title">Analytics</div>
-            <div class="tile-sub">Reports & insights</div>
-          </a>
-
-          <a class="card tile" href="#">
-            <div class="tile-icon">👤</div>
-            <div class="tile-title">Users</div>
-            <div class="tile-sub">Manage accounts</div>
-          </a>
-
-          <a class="card tile" href="#">
-            <div class="tile-icon">⚙️</div>
-            <div class="tile-title">Settings</div>
-            <div class="tile-sub">Configurations</div>
-          </a>
-        </div>
-
-        <!-- Optional: little dashboard strip -->
-        <div class="card strip">
-          <div class="strip-item">
-            <div class="strip-label">Status</div>
-            <div class="strip-value ok">Online</div>
-          </div>
-          <div class="strip-item">
-            <div class="strip-label">Sessions</div>
-            <div class="strip-value">128</div>
-          </div>
-          <div class="strip-item">
-            <div class="strip-label">Errors</div>
-            <div class="strip-value warn">3</div>
-          </div>
-          <div class="strip-item">
-            <div class="strip-label">Last Backup</div>
-            <div class="strip-value">Today</div>
-          </div>
-        </div>
-      </section>
-    </section>
-  </main>
-
+  <div class="header">
+    <h1>Admin Dashboard</h1>
+    <button class="toggle-btn" onclick="toggleMode()">☀ Light Mode</button>
+  </div>
+  <div class="main">
+    <div class="sidebar">
+      <h2>Navigation</h2>
+      <div class="nav-item">Dashboard</div>
+      <div class="nav-item">Analytics</div>
+      <div class="nav-item">Users</div>
+      <div class="nav-item">Settings</div>
+    </div>
+    <div class="content">
+      <div class="box">Analytics</div>
+      <div class="box">Users</div>
+      <div class="box">Settings</div>
+    </div>
+  </div>
   <script>
-    // Optional theme toggle (makes it feel authentic)
-    const btn = document.getElementById("modeBtn");
-    btn.addEventListener("click", () => {
+    function toggleMode(){
       document.body.classList.toggle("light");
-      const isLight = document.body.classList.contains("light");
-      btn.querySelector(".mode-icon").textContent = isLight ? "🌙" : "☀️";
-      btn.querySelector(".mode-text").textContent = isLight ? "Dark Mode" : "Light Mode";
-    });
+      let btn = document.querySelector(".toggle-btn");
+      if(document.body.classList.contains("light")){
+        btn.innerHTML = "🌙 Dark Mode";
+      }else{
+        btn.innerHTML = "☀ Light Mode";
+      }
+    }
   </script>
 </body>
 </html>
