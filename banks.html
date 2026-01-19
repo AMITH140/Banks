@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BANK BALANCE</title>
+  <style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f4f4f4;
+        font-family: Arial, sans-serif;
+    }
+    .balance {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .amount-label {
+        font-size: 16px;
+        text-align: center;
+
+    }
+    
+    input[type ="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 7px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .buttons{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 90px;
+    }
+    .btn {
+        flex: 1;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #fff;
+        margin: 0 5px;
+    }
+    .deposit {
+        background-color: blue; 
+    }
+    .withdraw {
+        background-color: red;
+    }
+    
+    </style>
+</head>
+</body>
+</div class="balance" id="balance">$1000.00</div>
+<div class="amount-label"> Amount</div>
+<input type="number" id="amount" placeholder="Enter amount" />
+<div class="buttons">
+    <button class="btn deposit" id="depositBtn">Deposit</button>
+    <button class="btn withdraw" id="withdrawBtn">Withdraw</button>
+</div>
+  </div>
+</body>
+</html>
